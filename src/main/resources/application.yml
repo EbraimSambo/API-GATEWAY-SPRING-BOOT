@@ -10,6 +10,7 @@ spring:
           uri: http://localhost:3000
           predicates:
             - Path=/scheduling/**
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
           filters:
             - StripPrefix=1
 logging:
