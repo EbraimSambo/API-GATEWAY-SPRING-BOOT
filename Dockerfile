@@ -11,6 +11,6 @@ FROM openjdk:17-jdk-slim
 
 EXPOSE 9090
 
-COPY --from=build /target/target/demo-0.0.1-SNAPSHOT.jar app.jr
+COPY --from=build /target/demo-0.0.1-SNAPSHOT.jar app.jr
 
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
