@@ -7,12 +7,26 @@ spring:
     gateway:
       routes:
         - id: scheduling-route
-          uri: http://localhost:3000
+          uri: http://localhost:4001
           predicates:
             - Path=/scheduling/**
             - After=2017-01-20T17:42:47.789-07:00[America/Denver]
           filters:
             - StripPrefix=1
+        - id: auth-route
+          uri: http://localhost:4002
+          predicates:
+            - Path=/auth/**
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            # - StripPrefix=1
+        - id: user-route
+          uri: http://localhost:4002
+          predicates:
+            - Path=/user/**
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            # - StripPrefix=1
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
